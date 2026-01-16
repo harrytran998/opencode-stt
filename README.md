@@ -26,18 +26,18 @@ Add to your `opencode.json`:
 
 ```bash
 # Base dependencies (required)
-pip install sounddevice soundfile numpy
+uv pip install sounddevice soundfile numpy
 
 # Choose ONE backend:
 
 # Option A: Moonshine (Recommended - fastest, smallest)
-pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
+uv pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
 
 # Option B: Whisper (OpenAI's original)
-pip install openai-whisper
+uv pip install openai-whisper
 
 # Option C: Faster-Whisper (Optimized Whisper)
-pip install faster-whisper
+uv pip install faster-whisper
 ```
 
 ### 3. Grant Microphone Permissions
@@ -130,7 +130,7 @@ sudo dnf install portaudio-devel python3-devel ffmpeg
 ### "No STT backend available"
 Install one of the supported backends:
 ```bash
-pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
+uv pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
 ```
 
 ### "No microphone found"
