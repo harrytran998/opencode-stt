@@ -21,8 +21,7 @@ import type { SpeechToTextConfig, SttBackend } from "./types";
  *    - OR Whisper: pip install openai-whisper
  *    - OR Faster-Whisper: pip install faster-whisper
  */
-export const SpeechToTextPlugin: Plugin = async (ctx) => {
-  // Load configuration from environment or defaults
+export const SpeechToTextPlugin: Plugin = async () => {
   const config: SpeechToTextConfig = {
     backend: (process.env.STT_BACKEND as SttBackend) || "auto",
     model: process.env.STT_MODEL || "tiny",
@@ -31,22 +30,10 @@ export const SpeechToTextPlugin: Plugin = async (ctx) => {
     pythonPath: process.env.STT_PYTHON_PATH || "python3",
   };
 
-  // Log available backends on startup
   const backends = await listBackends(config.pythonPath);
-  if (backends.length > 0) {
-    await ctx.client.app.log({
-      service: "speech-to-text",
-      level: "info",
-      message: `Available STT backends: ${backends.join(", ")}`,
-    });
-  }
 
   return {
     tool: {
-      /**
-       * Voice input tool - records audio from microphone and transcribes it.
-       * Use this when the user wants to provide input via voice.
-       */
       voice_input: tool({
         description: `Record voice input from the microphone and transcribe it to text.
         
@@ -97,9 +84,6 @@ ${result.text}`;
         },
       }),
 
-      /**
-       * Check available STT backends.
-       */
       voice_check: tool({
         description: "Check which speech-to-text backends are available on this system.",
         args: {},
@@ -138,6 +122,5 @@ Current configuration:
 
 export default SpeechToTextPlugin;
 
-// Re-export types and utilities
 export * from "./types";
 export { transcribe, listBackends } from "./stt";
