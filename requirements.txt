@@ -1,0 +1,22 @@
+# Speech-to-Text dependencies for OpenCode plugin
+# Choose ONE backend by uncommenting the appropriate section
+
+# === Common dependencies ===
+sounddevice>=0.4.6
+soundfile>=0.12.1
+numpy>=1.24.0
+
+# === Option 1: Moonshine (Recommended - faster, smaller) ===
+# Install with: pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
+# Or uncomment below:
+# useful-moonshine-onnx @ git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
+
+# === Option 2: Whisper (OpenAI's model) ===
+# Install with: pip install openai-whisper
+# Or uncomment below:
+# openai-whisper>=20231117
+
+# === Option 3: Faster-Whisper (Optimized Whisper) ===
+# Install with: pip install faster-whisper
+# Or uncomment below:
+# faster-whisper>=1.0.0
