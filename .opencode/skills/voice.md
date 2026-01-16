@@ -39,21 +39,21 @@ The following environment variables can be set to configure the STT backend:
 
 1. Python 3.10+ with audio dependencies:
    ```bash
-   pip install sounddevice soundfile numpy
+   uv pip install sounddevice soundfile numpy
    ```
 
 2. One of the following STT backends:
    - **Moonshine** (recommended - fastest):
      ```bash
-     pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
+     uv pip install useful-moonshine-onnx@git+https://github.com/moonshine-ai/moonshine.git#subdirectory=moonshine-onnx
      ```
    - **Whisper**:
      ```bash
-     pip install openai-whisper
+     uv pip install openai-whisper
      ```
    - **Faster-Whisper**:
      ```bash
-     pip install faster-whisper
+     uv pip install faster-whisper
      ```
 
 3. Microphone access permissions for your terminal application
