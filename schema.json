@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenCode Speech-to-Text Configuration",
+  "description": "Configuration options for the speech-to-text plugin",
+  "type": "object",
+  "properties": {
+    "stt": {
+      "type": "object",
+      "description": "Speech-to-text configuration",
+      "properties": {
+        "backend": {
+          "type": "string",
+          "enum": ["moonshine", "whisper", "faster-whisper", "auto"],
+          "default": "auto",
+          "description": "STT backend to use. 'auto' will detect available backends."
+        },
+        "model": {
+          "type": "string",
+          "default": "tiny",
+          "description": "Model size. For Moonshine: tiny, base. For Whisper: tiny, base, small, medium, large."
+        },
+        "language": {
+          "type": "string",
+          "default": "en",
+          "description": "Language code for transcription (e.g., 'en', 'zh', 'ja')."
+        },
+        "maxDuration": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "maximum": 300,
+          "description": "Maximum recording duration in seconds."
+        },
+        "pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "description": "Path to Python executable."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,49 @@
+{
+  "name": "opencode-speech-to-text",
+  "version": "0.1.0",
+  "description": "Speech-to-text plugin for OpenCode with Moonshine and Whisper support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "scripts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target bun --format esm && tsc --emitDeclarationOnly",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "bun run clean && bun run build",
+    "typecheck": "tsc --noEmit",
+    "setup": "python3 -m pip install -r requirements.txt"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "speech-to-text",
+    "stt",
+    "voice",
+    "whisper",
+    "moonshine",
+    "transcription"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.1.1",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.7.3"
+  }
+}
